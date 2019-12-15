@@ -1,0 +1,14 @@
+{
+  "name": "sass-breadscrum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/adel1982/sass-breadscrumb.git",
+  "author": "Adel Kamel <adelkamel1982@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "sass": "node-sass -w --output-style compressed scss -o css --source-map-root file://${PWD}/ --source-map-embed true"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  }
+}
