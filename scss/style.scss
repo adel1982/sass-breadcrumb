@@ -1,0 +1,108 @@
+/*------------------------------------*\
+  $ GEN
+\*------------------------------------*/
+$red: #E23E57;
+
+html {
+  background: #333;
+  height: 100%;
+}
+*,::after,::before {
+  box-sizing: border-box;
+}
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0; padding: 2em;
+  justify-content: center;
+}
+/*------------------------------------*\
+  $ HEADER
+\*------------------------------------*/
+.header {
+  background: white;
+  border-radius: 1.25em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 38em;
+  padding: 2em;
+  > *:not(:first-child) {
+    margin-top: 1.5em;
+  }
+  &__img {
+    background: #333;
+    border-radius: 50%;
+    width: 11em; height: 11em;
+  }
+  &__title {
+    font-size: 1em;
+    font-weight: normal;
+  }
+}
+/*------------------------------------*\
+  $ BREADSCRUMB
+\*------------------------------------*/
+.breadcrumbs {
+  width: 100%;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 1em;
+    counter-reset: item;
+    list-style-type: none;
+    margin: 0; padding: 0;
+    width: 100%;
+  }
+  &__item {
+    --dotColor: #E23E57;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    color: var(--dotColor);
+    font-size: .875em;
+    text-align: center;
+    position: relative;
+    &::before {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      background: var(--dotColor);
+      border-radius: 50%;
+      color: white;
+      content: counters(item, ".") " ";
+      counter-increment: item;
+      margin-bottom: .75em;
+      position: relative;
+      width: 2em; height: 2em;
+      z-index: 1;
+    }
+
+    &::after {
+      background: linear-gradient(to right, var(--dotColor) 25%, rgba(255, 255, 255, 0) 0%) repeat-x;
+      background-size: 4px 1px;
+      content: '';
+      display: block;
+      height: 2px;
+      position: absolute; top: 1em; left: 50%;
+      width: calc(100% + 1em);
+      z-index: 0;
+    }
+    &.current~li {
+      --dotColor: #161965;
+    }
+    &:last-of-type {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
