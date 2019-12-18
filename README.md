@@ -1,4 +1,4 @@
 # SASS Breadscrumb
 
 ## Used Technologys
-- HTML / SCSS 
+- HTML / CSS / SASS 
